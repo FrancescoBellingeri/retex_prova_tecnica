@@ -1,5 +1,5 @@
 <script>
-import ContentBlock from "./ContentBlock.vue"
+import ContentBlock from "./ContentBlockMobile.vue"
 
 export default {
     components: {
@@ -12,6 +12,7 @@ export default {
                     title: "Roccella Jonica, la Lampedusa che l'Italia ignora",
                     category: "MIGRANTI",
                     backgroundImage: "/download-1.jpg",
+
                     author: "Alessandro Puglia",
                     authorImage: "/alessandro-puglia.jpg",
                     date: "29 Giugno 2022",
@@ -20,6 +21,7 @@ export default {
                     title: "Il collasso dei ghiacciai negli scatti del fotografo ambientale Fabiano Ventura",
                     category: "ALLARMI",
                     video: "/collasso-ghiacciai.png",
+                    backgroundImageDesktopOnly: "/collasso-ghiacciai.png",
                     author: "Gilda Sciortino",
                     authorImage: "/gilda-sciortino.jpg",
                     date: "14 Luglio 2022",
@@ -27,7 +29,7 @@ export default {
                 {
                     title: "Gli startupper? Li trovi al bistrot. Così il DumBo incuba relazioni",
                     category: "ESPERIMENTI",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/startupper.jpg",
                     author: "Diletta grella",
                     authorImage: "/diletta-grella.jpg",
                     date: "14 Luglio 2022",
@@ -36,7 +38,7 @@ export default {
                 {
                     title: "Nelle città italiane tutti in piazza per e con Kiev",
                     category: "UCRAINA",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/ucraina.png",
                     author: "Anna Spena",
                     authorImage: "/anna-spena.jpg",
                     date: "14 Luglio 2022",
@@ -48,7 +50,6 @@ export default {
                 {
                     title: "“Qui Odessa”, fotografie, progetti e solidarietà",
                     category: "PROGETTO ARCA",
-                    /* backgroundImage: "/startupper.jpg", */
                     author: "Redazione",
                     authorImage: "/logo-vita.png",
                     date: "14 Luglio 2022",
@@ -56,7 +57,7 @@ export default {
                 {
                     title: "Storie fra ragazzi permeate di violenza. A Napoli 12enne sfregiata da 17enne",
                     category: "ADOLESCENTI",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/17enne.jpg",
                     author: "Luca Cereda",
                     authorImage: "/luca-cereda.jpg",
                     date: "13 Luglio 2022",
@@ -64,7 +65,7 @@ export default {
                 {
                     title: "“Co-agitiamo”, Tiggiano una cooperativa di comunità contro lo spopolamento",
                     category: "ECONOMIA CIVILE",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/cooperativa.jpg",
                     author: "Emiliano Moccia",
                     authorImage: "/emiliano-moccia.jpg",
                     date: "12 Luglio 2022",
@@ -72,7 +73,7 @@ export default {
                 {
                     title: "Troppi abusi nello sport minorile, il governo interviene",
                     category: "SPORT",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/abusi-sport.jpg",
                     author: "Diletta Grella",
                     authorImage: "/diletta-grella.jpg",
                     date: "14 Luglio 2022",
@@ -81,6 +82,7 @@ export default {
                 {
                     title: "Donne e nuove generazioni: con loro riparte l’Italia",
                     category: "SOCIETÀ",
+                    backgroundImageDesktopOnly: "/donne-nuove-generazioni.jpg",
                     image: "/donne-nuove-generazioni.jpg",
                     author: "Anna Spena",
                     authorImage: "/anna-spena.jpg",
@@ -89,6 +91,7 @@ export default {
                 {
                     title: "Essere troppo seri non è cosa molto seria",
                     subtitle: "[ Detto Africano ]",
+                    backgroundImageDesktopOnly: "/detto-africano.png",
                 },
                 {
                     title: "Il Blog",
@@ -96,6 +99,7 @@ export default {
                 {
                     title: "La Kasbah mazarese nella quale si gusta la cultura araba",
                     category: "IMPRESA SOCIALE",
+                    backgroundImageDesktopOnly: "/kasbah.png",
                     video: "/kasbah.png",
                     author: "Giovanni Gavardi",
                     authorImage: "/giovanni-gavardi.jpg",
@@ -104,14 +108,13 @@ export default {
                 {
                     title: "Sostenibilità sociale: accordo tra Dynamo Academy e Acsi",
                     sponsored: true,
-                    /* backgroundImage: "/startupper.jpg", */
                     author: "Dynamo Academy",
                     authorImage: "/dynamo-academy.png",
                 },
                 {
                     title: "Uccisa ad Haiti suor Luisa, era l'angelo dei bambini",
                     category: "PERSONE",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/morte-haiti.jpg",
                     author: "Lucia Capuzzi",
                     authorImage: "/lucia-capuzzi.jpg",
                     date: "1 Luglio 2022",
@@ -119,7 +122,6 @@ export default {
                 {
                     title: "Il fundraising in rotta verso Giardini-Naxos",
                     category: "NETWORKING",
-                    /* backgroundImage: "/startupper.jpg", */
                     author: "Redazione",
                     authorImage: "/logo-vita.png",
                     date: "1 Luglio 2022",
@@ -127,7 +129,7 @@ export default {
                 {
                     title: "Lisa, il modello Croce Rossa per l'inclusione lavorativa",
                     category: "SOICIETÀ CIVILE",
-                    /* backgroundImage: "/startupper.jpg", */
+                    backgroundImageDesktopOnly: "/Lisa.jpg",
                     author: "Francesca Palazzo",
                     authorImage: "/francesca-palazzo.png",
                     date: "1 Luglio 2022",
@@ -148,6 +150,7 @@ export default {
         :subtitle="item.subtitle"
         :category="item.category"
         :backgroundImage="item.backgroundImage"
+        :backgroundImageDesktopOnly="item.backgroundImageDesktopOnly"
         :image="item.image"
         :video="item.video"
         :author="item.author"
