@@ -42,7 +42,7 @@ export default {
                 },
                 {
                     title: "Il tuo supporto è fondamentale",
-                    subtitle: "Dai il tuo contributo &#8594;",
+                    subtitle: "Dai il tuo contributo",
                 },
                 {
                     title: "“Qui Odessa”, fotografie, progetti e solidarietà",
@@ -143,6 +143,7 @@ export default {
         v-for="(item, index) in cardsData"
         :key="index"
         :title="item.title"
+        :subtitle="item.subtitle"
         :category="item.category"
         :backgroundImage="item.backgroundImage"
         :image="item.image"

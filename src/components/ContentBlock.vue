@@ -3,7 +3,14 @@
         class="card padding"
         :style="{
             backgroundImage: backgroundImage ? `url(${backgroundImage})` : '',
-            backgroundColor: author === 'Redazione' ? '#e63036' : '',
+            backgroundColor:
+                author === 'Redazione'
+                    ? '#e63036'
+                    : title === 'Il tuo supporto è fondamentale'
+                    ? '#faf1de'
+                    : title === 'Essere troppo seri non è cosa molto seria'
+                    ? '#f4f4f4'
+                    : '',
         }">
         <div class="content">
             <div v-if="video" class="video-container">
@@ -12,9 +19,16 @@
             </div>
             <img v-if="image" :src="image" alt="immagine" class="main-img" />
             <span v-if="category" class="label bg-white">{{ category }}</span>
-            <h3 :class="backgroundImage || author === 'Redazione' ? 'text-white' : ''">
+            <h3
+                :class="{
+                    'text-white': backgroundImage || author === 'Redazione',
+                    'font-large': backgroundImage || subtitle,
+                    'font-medium': image || video,
+                    'font-small': !(backgroundImage || image || video),
+                }">
                 {{ title }}
             </h3>
+            <h5 v-if="subtitle" class="font-small">{{ subtitle }}</h5>
             <div
                 v-if="authorImage && author"
                 :class="backgroundImage || author === 'Redazione' ? 'text-white' : ''"
@@ -35,6 +49,7 @@
 export default {
     props: {
         title: String,
+        subtitle: String,
         category: String,
         backgroundImage: String,
         image: String,
@@ -63,7 +78,21 @@ span {
     font-size: 10px;
 }
 
-h3 {
+.font-small {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 16px 0;
+}
+
+.font-medium {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 16px 0;
+}
+
+.font-large {
     font-size: 24px;
     font-weight: 700;
     line-height: 32px;
