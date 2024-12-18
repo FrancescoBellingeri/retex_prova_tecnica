@@ -140,7 +140,7 @@ ul {
 }
 
 li {
-    margin: 5px;
+    margin: 4px;
     font-size: 10px;
 }
 
@@ -189,7 +189,7 @@ span {
     }
 
     li {
-        margin: 0px 10px 0px 0px;
+        margin: 0px 4px 0px 0px;
         height: 100%;
         display: flex;
         align-items: center;
