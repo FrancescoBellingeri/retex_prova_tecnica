@@ -57,6 +57,20 @@ export default {
                         </div>
                     </div>
                 </div>
+                <div class="col-100 padding bg-light-green">
+                    <h1 class="d-flex margin-bottom-10">
+                        {{ navbarItems[0].text }}
+                        <span class="display-mobile"><i class="fa-solid fa-angle-down"></i></span>
+                    </h1>
+                    <ul>
+                        <li
+                            v-for="(item, index) in navbarItems.slice(1)"
+                            :key="index"
+                            class="label">
+                            {{ item.text }}
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -114,6 +128,31 @@ input {
     border-bottom: 1px solid black;
 }
 
+.fa-angle-down {
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    margin: 5px;
+    font-size: 10px;
+}
+
+span {
+    margin-left: 5px;
+}
+
+.col-100.bg-light-green {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
 @media (min-width: 991px) {
     .col-100.h-40 {
         display: flex;
@@ -164,6 +203,36 @@ input {
 
     .border-bottom-transparent {
         border-bottom: 5px solid white;
+    }
+
+    .col-100.bg-light-green {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid black;
+    }
+
+    .col-100.bg-light-green ul {
+        height: auto;
+    }
+
+    .col-100.bg-light-green li {
+        font-size: 10px;
+    }
+
+    .col-100.bg-light-green ul li:nth-child(1) {
+        background-color: #e2f1e8;
+    }
+
+    .col-100.bg-light-green ul li:nth-child(3) {
+        background-color: #f1dada;
+    }
+
+    .col-100.bg-light-green ul li:nth-child(5) {
+        background-color: #f1f1e2;
+    }
+
+    .col-100.bg-light-green ul li:last-child {
+        margin: 0;
     }
 }
 </style>

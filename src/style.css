@@ -73,6 +73,22 @@
     background-color: white;
 }
 
+.bg-light-green {
+    background-color: #f4f4f4;
+}
+
+.label {
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: -2px 2px 0px 0px black;
+    padding: 8px;
+    text-transform: uppercase;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
 /* MEDIA QUERY */
 
 @media (min-width: 991px) {
