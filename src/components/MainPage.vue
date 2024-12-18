@@ -150,7 +150,31 @@ export default {
         :video="item.video"
         :author="item.author"
         :authorImage="item.authorImage"
-        :date="item.date" />
+        :date="item.date"
+        :sponsor="item.sponsored" />
+    <div class="display-mobile">
+        <span class="mountain-icon"><img src="/public/mountain.png" alt="" /></span>
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.mountain-icon {
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: -2px 2px 0px 0px black;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 16px;
+    bottom: 40px;
+    background-color: white;
+}
+
+.mountain-icon img {
+    height: 17px;
+    width: 20px;
+}
+</style>

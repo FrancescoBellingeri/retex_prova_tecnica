@@ -19,6 +19,9 @@
             </div>
             <img v-if="image" :src="image" alt="immagine" class="main-img" />
             <span v-if="category" class="label bg-white">{{ category }}</span>
+            <span v-if="sponsor" class="text-red sponsor"
+                ><i class="fa-solid fa-bullhorn"></i> SPONSORED</span
+            >
             <h3
                 :class="{
                     'text-white': backgroundImage || author === 'Redazione',
@@ -57,6 +60,7 @@ export default {
         author: String,
         authorImage: String,
         date: String,
+        sponsor: Boolean,
     },
 }
 </script>
@@ -76,6 +80,7 @@ export default {
 
 span {
     font-size: 10px;
+    font-weight: 700;
 }
 
 .font-small {

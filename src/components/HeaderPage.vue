@@ -53,7 +53,10 @@ export default {
                             </li>
                         </ul>
                         <div class="h-100 d-flex align-items-center">
-                            Aa <img src="/public/Toggle.png" alt="toggle" />
+                            Aa
+                            <span class="mountain-icon"
+                                ><img src="/public/mountain.png" alt=""
+                            /></span>
                         </div>
                     </div>
                 </div>
@@ -176,10 +179,21 @@ span {
         border-top: 1px solid black;
     }
 
-    img {
+    .mountain-icon {
+        border: 1px solid black;
+        border-radius: 4px;
+        box-shadow: -2px 2px 0px 0px black;
+        width: 30px;
         height: 30px;
-        width: auto;
-        margin-left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 8px;
+    }
+
+    .mountain-icon img {
+        height: 17px;
+        width: 20px;
     }
 
     ul {
