@@ -31,6 +31,7 @@ export default {
                     author: "Diletta grella",
                     authorImage: "/diletta-grella.jpg",
                     date: "14 Luglio 2022",
+                    audio: true,
                 },
                 {
                     title: "Nelle città italiane tutti in piazza per e con Kiev",
@@ -75,6 +76,7 @@ export default {
                     author: "Diletta Grella",
                     authorImage: "/diletta-grella.jpg",
                     date: "14 Luglio 2022",
+                    audio: true,
                 },
                 {
                     title: "Donne e nuove generazioni: con loro riparte l’Italia",
@@ -151,6 +153,7 @@ export default {
         :author="item.author"
         :authorImage="item.authorImage"
         :date="item.date"
+        :audio="item.audio"
         :sponsor="item.sponsored" />
     <div class="display-mobile">
         <span class="mountain-icon"><img src="/mountain.png" alt="" /></span>

@@ -24,6 +24,18 @@
             <span v-if="sponsor" class="text-red sponsor"
                 ><i class="fa-solid fa-bullhorn"></i> SPONSORED</span
             >
+            <div class="player-container" v-if="audio">
+                <button class="play-button"></button>
+                <div ref="waveformContainer" class="waveform">
+                    <div
+                        v-for="(height, index) in barHeights"
+                        :key="index"
+                        class="bar"
+                        :style="{ height: `${height}%` }"></div>
+                </div>
+                <span class="timestamp">-03:34</span>
+            </div>
+
             <h3
                 :class="{
                     'text-white': backgroundImage || author === 'Redazione',
@@ -44,8 +56,6 @@
                     <div v-if="date" class="date">{{ date }}</div>
                 </div>
             </div>
-            <!-- Mostra il player audio se audioUrl è presente -->
-            <audio v-if="audioUrl" controls :src="audioUrl"></audio>
         </div>
     </div>
 </template>
@@ -65,9 +75,33 @@ export default {
         authorImage: String,
         date: String,
         sponsor: Boolean,
+        audio: String,
     },
     components: {
         BlogSection,
+    },
+    data() {
+        return {
+            barHeights: [],
+            barWidth: 3, // Width of each bar including gap
+        }
+    },
+    methods: {
+        generateBars() {
+            if (!this.$refs.waveformContainer) return
+
+            const containerWidth = this.$refs.waveformContainer.offsetWidth
+            const numberOfBars = Math.floor(containerWidth / this.barWidth)
+
+            this.barHeights = Array.from({ length: numberOfBars }, () => Math.random() * 100)
+        },
+    },
+    mounted() {
+        this.generateBars()
+        window.addEventListener("resize", this.generateBars)
+    },
+    beforeUnmount() {
+        window.removeEventListener("resize", this.generateBars)
     },
 }
 </script>
@@ -168,5 +202,52 @@ span {
     object-fit: cover;
     object-position: center;
     border: 1px solid black;
+}
+
+.player-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 8px 12px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.play-button {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid #000;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.waveform {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 32px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.bar {
+    flex-grow: 1;
+    background: #000;
+    opacity: 0.7;
+}
+
+.timestamp {
+    flex-shrink: 0;
+    color: #000;
+    font-size: 14px;
+    min-width: 45px;
 }
 </style>
