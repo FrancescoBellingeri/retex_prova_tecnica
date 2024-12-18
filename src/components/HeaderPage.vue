@@ -54,9 +54,7 @@ export default {
                         </ul>
                         <div class="h-100 d-flex align-items-center">
                             Aa
-                            <span class="mountain-icon"
-                                ><img src="/public/mountain.png" alt=""
-                            /></span>
+                            <span class="mountain-icon"><img src="/mountain.png" alt="" /></span>
                         </div>
                     </div>
                 </div>

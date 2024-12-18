@@ -1,5 +1,7 @@
 <template>
+    <BlogSection v-if="title === 'Il Blog'" />
     <div
+        v-if="title !== 'Il Blog'"
         class="card padding"
         :style="{
             backgroundImage: backgroundImage ? `url(${backgroundImage})` : '',
@@ -49,6 +51,8 @@
 </template>
 
 <script>
+import BlogSection from "./BlogSection.vue"
+
 export default {
     props: {
         title: String,
@@ -61,6 +65,9 @@ export default {
         authorImage: String,
         date: String,
         sponsor: Boolean,
+    },
+    components: {
+        BlogSection,
     },
 }
 </script>
