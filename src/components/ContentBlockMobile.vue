@@ -1,8 +1,9 @@
 <template>
-    <BlogSection v-if="title === 'Il Blog'" />
+    <!-- <BlogSection v-if="title === 'Il Blog'" /> -->
     <div
+        :class="customClass"
         v-if="title !== 'Il Blog'"
-        class="card padding"
+        class="card padding overlay-container"
         :style="{
             backgroundImage: getBackgroundImage() ? `url(${getBackgroundImage()})` : '',
             backgroundColor:
@@ -14,6 +15,12 @@
                     ? '#f4f4f4'
                     : '',
         }">
+        <div
+            class="overlay"
+            v-if="
+                (!isDesktop && backgroundImage) ||
+                (isDesktop && (backgroundImageDesktopOnly || backgroundImage))
+            "></div>
         <div class="content">
             <div v-if="video && !isDesktop" class="video-container">
                 <span class="play-video"><i class="fa-solid fa-play"></i></span>
@@ -111,6 +118,7 @@ export default {
         date: String,
         sponsor: Boolean,
         audio: Boolean,
+        customClass: String,
     },
     components: {
         BlogSection,
@@ -169,6 +177,26 @@ export default {
     padding-top: 40px;
     padding-bottom: 24px;
     border-top: 1px solid black;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.overlay-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 span {
@@ -301,5 +329,28 @@ span {
     color: #000;
     font-size: 14px;
     min-width: 45px;
+}
+
+@media (min-width: 991px) {
+    .font-large {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 54px;
+        margin: 16px 0;
+    }
+
+    .font-medium {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 46px;
+        margin: 16px 0;
+    }
+
+    .font-small {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        margin: 16px 0;
+    }
 }
 </style>

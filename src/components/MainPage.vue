@@ -139,25 +139,45 @@ export default {
             ],
         }
     },
+    methods: {
+        getGridClasses(index) {
+            if (window.innerWidth <= 991) {
+                return "col-100" // Mobile, tutti gli elementi occupano 100%
+            }
+
+            switch (index) {
+                case 0:
+                    return "col-100"
+                case 1:
+                    return "flex-item"
+                case 2:
+                case 3:
+                    return "flex-item"
+            }
+        },
+    },
 }
 </script>
 
 <template>
-    <ContentBlock
-        v-for="(item, index) in cardsData"
-        :key="index"
-        :title="item.title"
-        :subtitle="item.subtitle"
-        :category="item.category"
-        :backgroundImage="item.backgroundImage"
-        :backgroundImageDesktopOnly="item.backgroundImageDesktopOnly"
-        :image="item.image"
-        :video="item.video"
-        :author="item.author"
-        :authorImage="item.authorImage"
-        :date="item.date"
-        :audio="item.audio"
-        :sponsor="item.sponsored" />
+    <div class="flex-container">
+        <ContentBlock
+            v-for="(item, index) in cardsData"
+            :key="index"
+            :class="getGridClasses(index)"
+            :title="item.title"
+            :subtitle="item.subtitle"
+            :category="item.category"
+            :backgroundImage="item.backgroundImage"
+            :backgroundImageDesktopOnly="item.backgroundImageDesktopOnly"
+            :image="item.image"
+            :video="item.video"
+            :author="item.author"
+            :authorImage="item.authorImage"
+            :date="item.date"
+            :audio="item.audio"
+            :sponsor="item.sponsored" />
+    </div>
     <div class="display-mobile">
         <span class="mountain-icon"><img src="/mountain.png" alt="" /></span>
     </div>
@@ -182,5 +202,25 @@ export default {
 .mountain-icon img {
     height: 17px;
     width: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1 1;
+}
+
+@media (min-width: 991px) {
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flex-item {
+        flex: 1 1;
+    }
 }
 </style>
