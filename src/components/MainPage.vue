@@ -19,7 +19,7 @@ export default {
                 {
                     title: "Il collasso dei ghiacciai negli scatti del fotografo ambientale Fabiano Ventura",
                     category: "ALLARMI",
-                    /* backgroundImage: "/public/collasso-ghiacciai.jpg", */
+                    video: "/public/collasso-ghiacciai.png",
                     author: "Gilda Sciortino",
                     authorImage: "/public/gilda-sciortino.jpg",
                     date: "14 Luglio 2022",
@@ -39,6 +39,10 @@ export default {
                     author: "Anna Spena",
                     authorImage: "/public/anna-spena.jpg",
                     date: "14 Luglio 2022",
+                },
+                {
+                    title: "Il tuo supporto è fondamentale",
+                    subtitle: "Dai il tuo contributo &#8594;",
                 },
                 {
                     title: "“Qui Odessa”, fotografie, progetti e solidarietà",
@@ -75,7 +79,7 @@ export default {
                 {
                     title: "Donne e nuove generazioni: con loro riparte l’Italia",
                     category: "SOCIETÀ",
-                    /* backgroundImage: "/public/startupper.jpg", */
+                    image: "/public/donne-nuove-generazioni.jpg",
                     author: "Anna Spena",
                     authorImage: "/public/anna-spena.jpg",
                     date: "14 Luglio 2022",
@@ -84,7 +88,48 @@ export default {
                     title: "Essere troppo seri non è cosa molto seria",
                     subtitle: "[ Detto Africano ]",
                 },
-                {},
+                {
+                    title: "Il Blog",
+                },
+                {
+                    title: "La Kasbah mazarese nella quale si gusta la cultura araba",
+                    category: "IMPRESA SOCIALE",
+                    video: "/public/kasbah.png",
+                    author: "Giovanni Gavardi",
+                    authorImage: "/public/giovanni-gavardi.jpg",
+                    date: "14 Luglio 2022",
+                },
+                {
+                    title: "Sostenibilità sociale: accordo tra Dynamo Academy e Acsi",
+                    sponsored: true,
+                    /* backgroundImage: "/public/startupper.jpg", */
+                    author: "Dynamo Academy",
+                    authorImage: "/public/dynamo-academy.png",
+                },
+                {
+                    title: "Uccisa ad Haiti suor Luisa, era l'angelo dei bambini",
+                    category: "PERSONE",
+                    /* backgroundImage: "/public/startupper.jpg", */
+                    author: "Lucia Capuzzi",
+                    authorImage: "/public/lucia-capuzzi.jpg",
+                    date: "1 Luglio 2022",
+                },
+                {
+                    title: "Il fundraising in rotta verso Giardini-Naxos",
+                    category: "NETWORKING",
+                    /* backgroundImage: "/public/startupper.jpg", */
+                    author: "Redazione",
+                    authorImage: "/public/logo-vita.png",
+                    date: "1 Luglio 2022",
+                },
+                {
+                    title: "Lisa, il modello Croce Rossa per l'inclusione lavorativa",
+                    category: "SOICIETÀ CIVILE",
+                    /* backgroundImage: "/public/startupper.jpg", */
+                    author: "Francesca Palazzo",
+                    authorImage: "/public/francesca-palazzo.png",
+                    date: "1 Luglio 2022",
+                },
 
                 // Aggiungi altre card qui
             ],
@@ -100,6 +145,8 @@ export default {
         :title="item.title"
         :category="item.category"
         :backgroundImage="item.backgroundImage"
+        :image="item.image"
+        :video="item.video"
         :author="item.author"
         :authorImage="item.authorImage"
         :date="item.date" />
