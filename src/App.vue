@@ -1,5 +1,15 @@
-<script setup></script>
+<script>
+import HeaderPage from "./components/HeaderPage.vue"
 
-<template></template>
+export default {
+    components: {
+        HeaderPage,
+    },
+}
+</script>
+
+<template>
+    <HeaderPage />
+</template>
 
 <style scoped></style>
