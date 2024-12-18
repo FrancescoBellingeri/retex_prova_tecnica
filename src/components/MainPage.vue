@@ -43,7 +43,7 @@ export default {
                 },
                 {
                     title: "Il tuo supporto è fondamentale",
-                    subtitle: "Dai il tuo contributo",
+                    subtitle: `Dai il tuo contributo <i class="fa-solid fa-arrow-right"></i>`,
                 },
                 {
                     title: "“Qui Odessa”, fotografie, progetti e solidarietà",

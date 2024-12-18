@@ -20,7 +20,31 @@
                 <img :src="video" alt="" class="video" />
             </div>
             <img v-if="image" :src="image" alt="immagine" class="main-img" />
-            <span v-if="category" class="label bg-white">{{ category }}</span>
+            <span
+                v-if="category"
+                class="label bg-white"
+                :style="{
+                    backgroundColor:
+                        category === 'ALLARMI'
+                            ? '#e2f1e8'
+                            : category === 'ESPERIMENTI' ||
+                              category === 'ADOLESCENTI' ||
+                              category === 'SPORT' ||
+                              category === 'SOCIETÀ' ||
+                              category === 'SOCIETÀ CIVILE'
+                            ? '#e2f0f1'
+                            : category === 'UCRAINA'
+                            ? '#f1dada'
+                            : category === 'ECONOMIA CIVILE'
+                            ? '#f0e2f1'
+                            : category === 'IMPRESA SOCIALE'
+                            ? '#f5e6e0'
+                            : category === 'PERSONE'
+                            ? '#f1dada'
+                            : '',
+                }"
+                >{{ category }}</span
+            >
             <span v-if="sponsor" class="text-red sponsor"
                 ><i class="fa-solid fa-bullhorn"></i> SPONSORED</span
             >
@@ -45,7 +69,8 @@
                 }">
                 {{ title }}
             </h3>
-            <h5 v-if="subtitle" class="font-small">{{ subtitle }}</h5>
+            <h5 v-if="subtitle" class="font-small" v-html="subtitle"></h5>
+
             <div
                 v-if="authorImage && author"
                 :class="backgroundImage || author === 'Redazione' ? 'text-white' : ''"
@@ -83,7 +108,7 @@ export default {
     data() {
         return {
             barHeights: [],
-            barWidth: 3, // Width of each bar including gap
+            barWidth: 3,
         }
     },
     methods: {
