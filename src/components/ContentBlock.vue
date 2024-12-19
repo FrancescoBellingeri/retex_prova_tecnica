@@ -83,19 +83,29 @@
 
             <div
                 v-if="authorImage && author"
-                :class="
-                    backgroundImage ||
-                    (isDesktop && backgroundImageDesktopOnly) ||
-                    author === 'Redazione'
-                        ? 'text-white'
-                        : ''
-                "
-                class="d-flex align-items-center">
+                :class="{
+                    'flex-column-desktop': useFlexColumn,
+                    'text-white':
+                        backgroundImage ||
+                        (isDesktop && backgroundImageDesktopOnly) ||
+                        author === 'Redazione',
+                }"
+                class="d-flex align-items-center justify-content-between-lg">
                 <img :src="authorImage" :alt="`immagine ${author}`" class="author-img" />
                 <div>
                     <div v-if="author" class="author">Di {{ author }}</div>
                     <div v-if="date" class="date">{{ date }}</div>
                 </div>
+            </div>
+            <div
+                v-if="isDesktop && authorImage && author && author !== 'Alessandro Puglia'"
+                :class="{
+                    'text-white':
+                        backgroundImage ||
+                        (isDesktop && backgroundImageDesktopOnly) ||
+                        author === 'Redazione',
+                }">
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
         </div>
     </div>
@@ -119,6 +129,7 @@ export default {
         sponsor: Boolean,
         audio: Boolean,
         customClass: String,
+        useFlexColumn: Boolean,
     },
     components: {
         BlogSection,
@@ -351,6 +362,22 @@ span {
         font-weight: 700;
         line-height: 32px;
         margin: 16px 0;
+    }
+
+    .flex-column-desktop {
+        flex-direction: column;
+    }
+
+    .align-items-center {
+        align-items: flex-start;
+    }
+
+    .flex-column-desktop .author {
+        margin-top: 16px;
+    }
+
+    .fa-arrow-right {
+        margin-top: 16px;
     }
 }
 </style>

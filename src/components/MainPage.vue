@@ -12,7 +12,7 @@ export default {
                     title: "Roccella Jonica, la Lampedusa che l'Italia ignora",
                     category: "MIGRANTI",
                     backgroundImage: "/download-1.jpg",
-
+                    useFlexColumn: false,
                     author: "Alessandro Puglia",
                     authorImage: "/alessandro-puglia.jpg",
                     date: "29 Giugno 2022",
@@ -22,6 +22,7 @@ export default {
                     category: "ALLARMI",
                     video: "/collasso-ghiacciai.png",
                     backgroundImageDesktopOnly: "/collasso-ghiacciai.png",
+                    useFlexColumn: true,
                     author: "Gilda Sciortino",
                     authorImage: "/gilda-sciortino.jpg",
                     date: "14 Luglio 2022",
@@ -30,6 +31,7 @@ export default {
                     title: "Gli startupper? Li trovi al bistrot. Così il DumBo incuba relazioni",
                     category: "ESPERIMENTI",
                     backgroundImageDesktopOnly: "/startupper.jpg",
+                    useFlexColumn: true,
                     author: "Diletta grella",
                     authorImage: "/diletta-grella.jpg",
                     date: "14 Luglio 2022",
@@ -39,6 +41,7 @@ export default {
                     title: "Nelle città italiane tutti in piazza per e con Kiev",
                     category: "UCRAINA",
                     backgroundImageDesktopOnly: "/ucraina.png",
+                    useFlexColumn: true,
                     author: "Anna Spena",
                     authorImage: "/anna-spena.jpg",
                     date: "14 Luglio 2022",
@@ -50,6 +53,7 @@ export default {
                 {
                     title: "“Qui Odessa”, fotografie, progetti e solidarietà",
                     category: "PROGETTO ARCA",
+                    useFlexColumn: true,
                     author: "Redazione",
                     authorImage: "/logo-vita.png",
                     date: "14 Luglio 2022",
@@ -58,6 +62,7 @@ export default {
                     title: "Storie fra ragazzi permeate di violenza. A Napoli 12enne sfregiata da 17enne",
                     category: "ADOLESCENTI",
                     backgroundImageDesktopOnly: "/17enne.jpg",
+                    useFlexColumn: true,
                     author: "Luca Cereda",
                     authorImage: "/luca-cereda.jpg",
                     date: "13 Luglio 2022",
@@ -66,6 +71,7 @@ export default {
                     title: "“Co-agitiamo”, Tiggiano una cooperativa di comunità contro lo spopolamento",
                     category: "ECONOMIA CIVILE",
                     backgroundImageDesktopOnly: "/cooperativa.jpg",
+                    useFlexColumn: true,
                     author: "Emiliano Moccia",
                     authorImage: "/emiliano-moccia.jpg",
                     date: "12 Luglio 2022",
@@ -74,6 +80,7 @@ export default {
                     title: "Troppi abusi nello sport minorile, il governo interviene",
                     category: "SPORT",
                     backgroundImageDesktopOnly: "/abusi-sport.jpg",
+                    useFlexColumn: true,
                     author: "Diletta Grella",
                     authorImage: "/diletta-grella.jpg",
                     date: "14 Luglio 2022",
@@ -84,6 +91,7 @@ export default {
                     category: "SOCIETÀ",
                     backgroundImageDesktopOnly: "/donne-nuove-generazioni.jpg",
                     image: "/donne-nuove-generazioni.jpg",
+                    useFlexColumn: false,
                     author: "Anna Spena",
                     authorImage: "/anna-spena.jpg",
                     date: "14 Luglio 2022",
@@ -101,6 +109,7 @@ export default {
                     category: "IMPRESA SOCIALE",
                     backgroundImageDesktopOnly: "/kasbah.png",
                     video: "/kasbah.png",
+                    useFlexColumn: true,
                     author: "Giovanni Gavardi",
                     authorImage: "/giovanni-gavardi.jpg",
                     date: "14 Luglio 2022",
@@ -108,6 +117,7 @@ export default {
                 {
                     title: "Sostenibilità sociale: accordo tra Dynamo Academy e Acsi",
                     sponsored: true,
+                    useFlexColumn: false,
                     author: "Dynamo Academy",
                     authorImage: "/dynamo-academy.png",
                 },
@@ -115,6 +125,7 @@ export default {
                     title: "Uccisa ad Haiti suor Luisa, era l'angelo dei bambini",
                     category: "PERSONE",
                     backgroundImageDesktopOnly: "/morte-haiti.jpg",
+                    useFlexColumn: false,
                     author: "Lucia Capuzzi",
                     authorImage: "/lucia-capuzzi.jpg",
                     date: "1 Luglio 2022",
@@ -122,6 +133,7 @@ export default {
                 {
                     title: "Il fundraising in rotta verso Giardini-Naxos",
                     category: "NETWORKING",
+                    useFlexColumn: false,
                     author: "Redazione",
                     authorImage: "/logo-vita.png",
                     date: "1 Luglio 2022",
@@ -130,6 +142,7 @@ export default {
                     title: "Lisa, il modello Croce Rossa per l'inclusione lavorativa",
                     category: "SOICIETÀ CIVILE",
                     backgroundImageDesktopOnly: "/Lisa.jpg",
+                    useFlexColumn: false,
                     author: "Francesca Palazzo",
                     authorImage: "/francesca-palazzo.png",
                     date: "1 Luglio 2022",
@@ -199,6 +212,7 @@ export default {
             :authorImage="cardsData[0].authorImage"
             :date="cardsData[0].date"
             :audio="cardsData[0].audio"
+            :useFlexColumn="cardsData[0].useFlexColumn"
             :sponsor="cardsData[0].sponsored" />
 
         <!-- Riga personalizzata per gli indici 1, 2 e 3 -->
@@ -216,6 +230,7 @@ export default {
                 :author="cardsData[1].author"
                 :authorImage="cardsData[1].authorImage"
                 :date="cardsData[1].date"
+                :useFlexColumn="cardsData[2].useFlexColumn"
                 :audio="cardsData[1].audio"
                 :sponsor="cardsData[1].sponsored" />
 
@@ -234,6 +249,7 @@ export default {
                     :authorImage="cardsData[2].authorImage"
                     :date="cardsData[2].date"
                     :audio="cardsData[2].audio"
+                    :useFlexColumn="cardsData[2].useFlexColumn"
                     :sponsor="cardsData[2].sponsored" />
 
                 <ContentBlock
@@ -249,6 +265,7 @@ export default {
                     :author="cardsData[3].author"
                     :authorImage="cardsData[3].authorImage"
                     :date="cardsData[3].date"
+                    :useFlexColumn="cardsData[3].useFlexColumn"
                     :audio="cardsData[3].audio"
                     :sponsor="cardsData[3].sponsored" />
             </div>
@@ -269,6 +286,7 @@ export default {
             :author="item.author"
             :authorImage="item.authorImage"
             :date="item.date"
+            :useFlexColumn="item.useFlexColumn"
             :audio="item.audio"
             :sponsor="item.sponsored" />
     </div>
