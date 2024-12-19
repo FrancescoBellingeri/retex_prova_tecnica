@@ -21,7 +21,7 @@
                 (!isDesktop && backgroundImage) ||
                 (isDesktop && (backgroundImageDesktopOnly || backgroundImage))
             "></div>
-        <div class="content">
+        <div class="content" :class="moveContent()">
             <div v-if="video && !isDesktop" class="video-container">
                 <span class="play-video"><i class="fa-solid fa-play"></i></span>
                 <img :src="video" alt="" class="video" />
@@ -130,6 +130,7 @@ export default {
         audio: Boolean,
         customClass: String,
         useFlexColumn: Boolean,
+        index: Number,
     },
     components: {
         BlogSection,
@@ -164,6 +165,21 @@ export default {
         handleResize() {
             this.isDesktop = window.innerWidth >= 991
         },
+        moveContent() {
+            if (
+                this.isDesktop &&
+                (this.author === "Giovanni Gavardi" ||
+                    this.title === "Donne e nuove generazioni: con loro riparte l’Italia")
+            ) {
+                return "half-width-right"
+            }
+
+            if (this.isDesktop && this.author === "Gilda Sciortino") {
+                return "moved-to-bottom"
+            }
+
+            return null
+        },
     },
     mounted() {
         this.generateBars()
@@ -183,8 +199,8 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
+    position: relative;
     flex-direction: column;
-    justify-content: space-between;
     padding-top: 40px;
     padding-bottom: 24px;
     border-top: 1px solid black;
@@ -378,6 +394,17 @@ span {
 
     .fa-arrow-right {
         margin-top: 16px;
+    }
+
+    .half-width-right {
+        width: 50%;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .moved-to-bottom {
+        position: absolute;
+        bottom: 16px;
     }
 }
 </style>

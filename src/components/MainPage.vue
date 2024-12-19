@@ -200,6 +200,7 @@ export default {
         <!-- Prima card (index 0) -->
         <ContentBlock
             v-if="cardsData[0]"
+            :index="0"
             :class="getGridClasses(0)"
             :title="cardsData[0].title"
             :subtitle="cardsData[0].subtitle"
@@ -220,6 +221,7 @@ export default {
             <ContentBlock
                 class="col-100 col-lg-66"
                 v-if="cardsData[1]"
+                :index="1"
                 :title="cardsData[1].title"
                 :subtitle="cardsData[1].subtitle"
                 :category="cardsData[1].category"
@@ -238,6 +240,7 @@ export default {
                 <ContentBlock
                     class="col-100"
                     v-if="cardsData[2]"
+                    :index="2"
                     :title="cardsData[2].title"
                     :subtitle="cardsData[2].subtitle"
                     :category="cardsData[2].category"
@@ -255,6 +258,7 @@ export default {
                 <ContentBlock
                     class="col-100"
                     v-if="cardsData[3]"
+                    :index="3"
                     :title="cardsData[3].title"
                     :subtitle="cardsData[3].subtitle"
                     :category="cardsData[3].category"
@@ -275,6 +279,7 @@ export default {
         <ContentBlock
             v-for="(item, index) in cardsData.slice(4)"
             :key="index + 4"
+            :index="index"
             :class="getGridClasses(index + 4)"
             :title="item.title"
             :subtitle="item.subtitle"
