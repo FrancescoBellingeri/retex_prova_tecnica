@@ -1,14 +1,17 @@
 <script>
 import ContentBlock from "./ContentBlock.vue"
+import ContentBlockDesktop from "./ContentBlockDesktop.vue"
 
 export default {
     components: {
         ContentBlock,
+        ContentBlockDesktop,
     },
     data() {
         return {
             cardsData: [
                 {
+                    id: 1,
                     title: "Roccella Jonica, la Lampedusa che l'Italia ignora",
                     category: "MIGRANTI",
                     backgroundImage: "/download-1.jpg",
@@ -18,6 +21,7 @@ export default {
                     date: "29 Giugno 2022",
                 },
                 {
+                    id: 2,
                     title: "Il collasso dei ghiacciai negli scatti del fotografo ambientale Fabiano Ventura",
                     category: "ALLARMI",
                     video: "/collasso-ghiacciai.png",
@@ -28,6 +32,7 @@ export default {
                     date: "14 Luglio 2022",
                 },
                 {
+                    id: 3,
                     title: "Gli startupper? Li trovi al bistrot. Così il DumBo incuba relazioni",
                     category: "ESPERIMENTI",
                     backgroundImageDesktopOnly: "/startupper.jpg",
@@ -38,6 +43,7 @@ export default {
                     audio: true,
                 },
                 {
+                    id: 4,
                     title: "Nelle città italiane tutti in piazza per e con Kiev",
                     category: "UCRAINA",
                     backgroundImageDesktopOnly: "/ucraina.png",
@@ -47,11 +53,13 @@ export default {
                     date: "14 Luglio 2022",
                 },
                 {
+                    id: 5,
                     title: "Il tuo supporto è fondamentale",
                     subtitle: `Dai il tuo contributo <i class="fa-solid fa-arrow-right"></i>`,
                 },
                 {
-                    title: "“Qui Odessa”, fotografie, progetti e solidarietà",
+                    id: 6,
+                    title: "'Qui Odessa', fotografie, progetti e solidarietà",
                     category: "PROGETTO ARCA",
                     useFlexColumn: true,
                     author: "Redazione",
@@ -59,6 +67,7 @@ export default {
                     date: "14 Luglio 2022",
                 },
                 {
+                    id: 7,
                     title: "Storie fra ragazzi permeate di violenza. A Napoli 12enne sfregiata da 17enne",
                     category: "ADOLESCENTI",
                     backgroundImageDesktopOnly: "/17enne.jpg",
@@ -68,7 +77,8 @@ export default {
                     date: "13 Luglio 2022",
                 },
                 {
-                    title: "“Co-agitiamo”, Tiggiano una cooperativa di comunità contro lo spopolamento",
+                    id: 8,
+                    title: "'Co-agitiamo', Tiggiano una cooperativa di comunità contro lo spopolamento",
                     category: "ECONOMIA CIVILE",
                     backgroundImageDesktopOnly: "/cooperativa.jpg",
                     useFlexColumn: true,
@@ -77,6 +87,7 @@ export default {
                     date: "12 Luglio 2022",
                 },
                 {
+                    id: 9,
                     title: "Troppi abusi nello sport minorile, il governo interviene",
                     category: "SPORT",
                     backgroundImageDesktopOnly: "/abusi-sport.jpg",
@@ -87,7 +98,8 @@ export default {
                     audio: true,
                 },
                 {
-                    title: "Donne e nuove generazioni: con loro riparte l’Italia",
+                    id: 10,
+                    title: "Donne e nuove generazioni: con loro riparte l'Italia",
                     category: "SOCIETÀ",
                     backgroundImageDesktopOnly: "/donne-nuove-generazioni.jpg",
                     image: "/donne-nuove-generazioni.jpg",
@@ -95,16 +107,20 @@ export default {
                     author: "Anna Spena",
                     authorImage: "/anna-spena.jpg",
                     date: "14 Luglio 2022",
+                    interview_with: "Mariangela Cassano",
                 },
                 {
+                    id: 11,
                     title: "Essere troppo seri non è cosa molto seria",
                     subtitle: "[ Detto Africano ]",
                     backgroundImageDesktopOnly: "/detto-africano.png",
                 },
                 {
+                    id: 12,
                     title: "Il Blog",
                 },
                 {
+                    id: 13,
                     title: "La Kasbah mazarese nella quale si gusta la cultura araba",
                     category: "IMPRESA SOCIALE",
                     backgroundImageDesktopOnly: "/kasbah.png",
@@ -115,6 +131,7 @@ export default {
                     date: "14 Luglio 2022",
                 },
                 {
+                    id: 14,
                     title: "Sostenibilità sociale: accordo tra Dynamo Academy e Acsi",
                     sponsored: true,
                     useFlexColumn: false,
@@ -122,6 +139,7 @@ export default {
                     authorImage: "/dynamo-academy.png",
                 },
                 {
+                    id: 15,
                     title: "Uccisa ad Haiti suor Luisa, era l'angelo dei bambini",
                     category: "PERSONE",
                     backgroundImageDesktopOnly: "/morte-haiti.jpg",
@@ -131,6 +149,7 @@ export default {
                     date: "1 Luglio 2022",
                 },
                 {
+                    id: 16,
                     title: "Il fundraising in rotta verso Giardini-Naxos",
                     category: "NETWORKING",
                     useFlexColumn: false,
@@ -139,6 +158,7 @@ export default {
                     date: "1 Luglio 2022",
                 },
                 {
+                    id: 17,
                     title: "Lisa, il modello Croce Rossa per l'inclusione lavorativa",
                     category: "SOICIETÀ CIVILE",
                     backgroundImageDesktopOnly: "/Lisa.jpg",
@@ -147,8 +167,53 @@ export default {
                     authorImage: "/francesca-palazzo.png",
                     date: "1 Luglio 2022",
                 },
-
-                // Aggiungi altre card qui
+            ],
+            cardsOnlyDesktop: [
+                {
+                    id: 0,
+                    title: "Gli anziani del Sicomoro spopolano su TikTok",
+                    category: "INNOVAZIONE",
+                    backgroundImage: "/anziani.jpg",
+                    author: "Luigi Alfonso",
+                    authorImage: "/luigi-alfonso.jpg",
+                    date: "1 Luglio 2022",
+                },
+                {
+                    id: 1,
+                    title: "'Emergenza sordi': quando un'app ti salva la vita",
+                    category: "DISABILITÀ",
+                    backgroundImage: "/emergenza-sordi.jpg",
+                    author: "Sara Bellingeri",
+                    authorImage: "/sara-bellingeri.jpg",
+                    date: "1 Luglio 2022",
+                },
+                {
+                    id: 2,
+                    title: "Diego, il fruttivendolo che ha scelto la cooperazione sociale",
+                    category: "TRAIETTORIE",
+                    backgroundImage: "/fruttivendolo.jpg",
+                    author: "Giampaolo Cerri",
+                    authorImage: "/giampaolo-cerri.jpg",
+                    date: "1 Luglio 2022",
+                },
+                {
+                    id: 3,
+                    title: "Pedalare 'Sicily Coast to Coast' per essere più inclusivi",
+                    category: "SOCIALE",
+                    backgroundImage: "/pedalare.jpg",
+                    author: "Giovanni Gamba",
+                    authorImage: "/giovanni-gamba.jpg",
+                    date: "1 Luglio 2022",
+                },
+                {
+                    id: 4,
+                    title: "Leopoli, andata + ritorno",
+                    category: "UCRAINA",
+                    backgroundImage: "/leopoli.png",
+                    author: "Gilda Sciortino",
+                    authorImage: "/gilda-sciortino.jpg",
+                    date: "14 Luglio 2022",
+                },
             ],
             isMobile: false,
         }
@@ -183,6 +248,7 @@ export default {
                     return "col-66"
                 case 10:
                 case 12:
+                case 11:
                     return "col-100"
                 case 13:
                 case 14:
@@ -196,11 +262,15 @@ export default {
 </script>
 
 <template>
+    <div class="display-mobile">
+        <span class="mountain-icon"><img src="/public/mountain.png" alt="" /></span>
+    </div>
     <div class="flex-container">
         <!-- Prima card (index 0) -->
         <ContentBlock
             v-if="cardsData[0]"
             :index="0"
+            :id="cardsData[0].id"
             :class="getGridClasses(0)"
             :title="cardsData[0].title"
             :subtitle="cardsData[0].subtitle"
@@ -214,7 +284,8 @@ export default {
             :date="cardsData[0].date"
             :audio="cardsData[0].audio"
             :useFlexColumn="cardsData[0].useFlexColumn"
-            :sponsor="cardsData[0].sponsored" />
+            :sponsor="cardsData[0].sponsored"
+            :interview_with="cardsData[0].interview_with" />
 
         <!-- Riga personalizzata per gli indici 1, 2 e 3 -->
         <div class="custom-row">
@@ -222,6 +293,7 @@ export default {
                 class="col-100 col-lg-66"
                 v-if="cardsData[1]"
                 :index="1"
+                :id="cardsData[1].id"
                 :title="cardsData[1].title"
                 :subtitle="cardsData[1].subtitle"
                 :category="cardsData[1].category"
@@ -234,13 +306,15 @@ export default {
                 :date="cardsData[1].date"
                 :useFlexColumn="cardsData[2].useFlexColumn"
                 :audio="cardsData[1].audio"
-                :sponsor="cardsData[1].sponsored" />
+                :sponsor="cardsData[1].sponsored"
+                :interview_with="cardsData[1].interview_with" />
 
             <div class="col-100 col-lg-33">
                 <ContentBlock
                     class="col-100"
                     v-if="cardsData[2]"
                     :index="2"
+                    :id="cardsData[2].id"
                     :title="cardsData[2].title"
                     :subtitle="cardsData[2].subtitle"
                     :category="cardsData[2].category"
@@ -253,12 +327,14 @@ export default {
                     :date="cardsData[2].date"
                     :audio="cardsData[2].audio"
                     :useFlexColumn="cardsData[2].useFlexColumn"
-                    :sponsor="cardsData[2].sponsored" />
+                    :sponsor="cardsData[2].sponsored"
+                    :interview_with="cardsData[2].interview_with" />
 
                 <ContentBlock
                     class="col-100"
                     v-if="cardsData[3]"
                     :index="3"
+                    :id="cardsData[3].id"
                     :title="cardsData[3].title"
                     :subtitle="cardsData[3].subtitle"
                     :category="cardsData[3].category"
@@ -271,7 +347,8 @@ export default {
                     :date="cardsData[3].date"
                     :useFlexColumn="cardsData[3].useFlexColumn"
                     :audio="cardsData[3].audio"
-                    :sponsor="cardsData[3].sponsored" />
+                    :sponsor="cardsData[3].sponsored"
+                    :interview_with="cardsData[3].interview_with" />
             </div>
         </div>
 
@@ -280,6 +357,7 @@ export default {
             v-for="(item, index) in cardsData.slice(4)"
             :key="index + 4"
             :index="index"
+            :id="item.id"
             :class="getGridClasses(index + 4)"
             :title="item.title"
             :subtitle="item.subtitle"
@@ -293,7 +371,38 @@ export default {
             :date="item.date"
             :useFlexColumn="item.useFlexColumn"
             :audio="item.audio"
-            :sponsor="item.sponsored" />
+            :sponsor="item.sponsored"
+            :interview_with="item.interview_with" />
+    </div>
+    <div class="display-desktop flex-container">
+        <!-- Prima colonna -->
+        <div class="column column-1">
+            <ContentBlockDesktop
+                v-for="(item, index) in cardsOnlyDesktop.slice(0, 4)"
+                :key="item.id"
+                :id="item.id"
+                :title="item.title"
+                :category="item.category"
+                :backgroundImage="item.backgroundImage"
+                :author="item.author"
+                :authorImage="item.authorImage"
+                :date="item.date" />
+        </div>
+
+        <!-- Seconda colonna -->
+        <div class="column column-2">
+            <ContentBlockDesktop
+                v-if="cardsOnlyDesktop[4]"
+                :key="cardsOnlyDesktop[4].id"
+                :id="cardsOnlyDesktop[4].id"
+                :title="cardsOnlyDesktop[4].title"
+                :category="cardsOnlyDesktop[4].category"
+                :backgroundImage="cardsOnlyDesktop[4].backgroundImage"
+                :author="cardsOnlyDesktop[4].author"
+                :authorImage="cardsOnlyDesktop[4].authorImage"
+                :date="cardsOnlyDesktop[4].date"
+                class="full-height-card" />
+        </div>
     </div>
 </template>
 
@@ -308,6 +417,7 @@ export default {
     align-items: center;
     justify-content: center;
     position: fixed;
+    z-index: 3;
     right: 16px;
     bottom: 40px;
     background-color: white;
@@ -331,13 +441,47 @@ export default {
         width: 100%;
     }
 
-    .col-lg-33 {
+    [class*="col-"] {
         display: flex;
         flex-direction: column;
     }
 
+    .col-100 {
+        width: 100%;
+    }
+
+    .col-66,
     .col-lg-66 {
         width: calc(100% / 3 * 2);
+    }
+
+    .col-33,
+    .col-lg-33 {
+        width: calc(100% / 3);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-lg-33 > .col-100 {
+        flex: 1;
+        min-height: 0;
+    }
+
+    .column {
+        flex: 1;
+    }
+
+    .column-1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .column-2 {
+        display: flex;
+    }
+
+    .full-height-card {
+        flex: 1;
     }
 }
 </style>

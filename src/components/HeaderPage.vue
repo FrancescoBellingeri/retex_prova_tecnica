@@ -1,5 +1,10 @@
 <script>
+import Filter from "./Filter.vue"
+
 export default {
+    components: {
+        Filter,
+    },
     data() {
         return {
             navbarItems: [
@@ -12,72 +17,106 @@ export default {
                 { text: "Società", href: "#", active: false },
                 { text: "Welfare", href: "#", active: false },
             ],
+            filterAreOpen: false,
         }
+    },
+    methods: {
+        openFilter() {
+            this.filterAreOpen = !this.filterAreOpen
+        },
     },
 }
 </script>
 
 <template>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-100 h-44 display-mobile"></div>
-                <div class="col-100 h-40">
-                    <div class="h-100">
-                        <button class="btn h-100 bg-white">Contribuisci</button>
-                        <button class="btn h-100 bg-white">Abbonati</button>
+    <div class="layout-container">
+        <header class="header-fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-100 h-44 display-mobile"></div>
+                    <div class="col-100 h-40">
+                        <div class="h-100">
+                            <button class="btn h-100 bg-white">Contribuisci</button>
+                            <button class="btn h-100 bg-white">Abbonati</button>
+                        </div>
+                        <button class="btn h-100 bg-white display-desktop">
+                            <i class="fa-regular fa-user"></i> Accedi
+                        </button>
                     </div>
-                    <button class="btn h-100 bg-white display-desktop">
-                        <i class="fa-regular fa-user"></i> Accedi
-                    </button>
-                </div>
-                <div class="col-100 h-52 d-flex">
-                    <button class="bars text-red h-100 bg-white">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                    <input class="h-100" type="text" />
-                    <button class="search text-red h-100 bg-white">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
-                <div class="padding col-100 h-52 display-desktop">
-                    <div class="h-100 d-flex justify-content-between align-items-center">
-                        <ul>
-                            <li
-                                v-for="(item, index) in navbarItems"
-                                :key="index"
-                                :class="
-                                    item.active ? 'border-bottom-red' : 'border-bottom-transparent'
-                                ">
-                                {{ item.text }}
-                            </li>
-                        </ul>
-                        <div class="h-100 d-flex align-items-center">
-                            Aa
-                            <span class="mountain-icon"><img src="/mountain.png" alt="" /></span>
+                    <div class="col-100 h-52 d-flex">
+                        <button
+                            v-if="!filterAreOpen"
+                            class="bars text-red h-100 bg-white"
+                            @click="openFilter()">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <button
+                            v-if="filterAreOpen"
+                            class="bars text-red h-100 bg-white"
+                            @click="openFilter()">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <input class="h-100" type="text" />
+                        <button v-if="!filterAreOpen" class="search text-red h-100 bg-white">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <div class="col-100 h-52 padding-x display-desktop bg-white">
+                        <div class="h-100 d-flex justify-content-between align-items-center">
+                            <ul>
+                                <li
+                                    v-for="(item, index) in navbarItems"
+                                    :key="index"
+                                    :class="
+                                        item.active
+                                            ? 'border-bottom-red'
+                                            : 'border-bottom-transparent'
+                                    ">
+                                    {{ item.text }}
+                                </li>
+                            </ul>
+                            <div class="h-100 d-flex align-items-center">
+                                Aa
+                                <span class="mountain-icon"
+                                    ><img src="/mountain.png" alt=""
+                                /></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-100 padding bg-light-green">
-                    <h1 class="d-flex margin-bottom-10">
-                        {{ navbarItems[0].text }}
-                        <span class="display-mobile"><i class="fa-solid fa-angle-down"></i></span>
-                    </h1>
-                    <ul>
-                        <li
-                            v-for="(item, index) in navbarItems.slice(1)"
-                            :key="index"
-                            class="label">
-                            {{ item.text }}
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main class="main-content">
+            <div class="col-100 padding bg-light-green">
+                <h1 class="d-flex margin-bottom-10">
+                    {{ navbarItems[0].text }}
+                    <span class="display-mobile"><i class="fa-solid fa-angle-down"></i></span>
+                </h1>
+                <ul>
+                    <li v-for="(item, index) in navbarItems.slice(1)" :key="index" class="label">
+                        {{ item.text }}
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <Filter v-if="filterAreOpen" />
 </template>
 
 <style scoped>
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+}
+
+.main-content {
+    padding-top: 136px;
+}
+
 .h-44 {
     height: 44px;
 }
@@ -155,6 +194,13 @@ span {
 }
 
 @media (min-width: 991px) {
+    .main-content {
+        padding-top: 144px;
+    }
+
+    .header-fixed {
+        height: 144px;
+    }
     .col-100.h-40 {
         display: flex;
         justify-content: space-between;
@@ -245,6 +291,10 @@ span {
 
     .col-100.bg-light-green ul li:last-child {
         margin: 0;
+    }
+
+    .padding-x {
+        padding: 0 40px;
     }
 }
 </style>
