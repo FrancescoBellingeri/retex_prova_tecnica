@@ -1,5 +1,5 @@
 <script>
-import ContentBlock from "./ContentBlockMobile.vue"
+import ContentBlock from "./ContentBlock.vue"
 
 export default {
     components: {
@@ -137,9 +137,20 @@ export default {
 
                 // Aggiungi altre card qui
             ],
+            isMobile: false,
         }
     },
+    mounted() {
+        this.checkMobile()
+        window.addEventListener("resize", this.checkMobile)
+    },
+    beforeDestroy() {
+        window.removeEventListener("resize", this.checkMobile)
+    },
     methods: {
+        checkMobile() {
+            this.isMobile = window.innerWidth <= 991
+        },
         getGridClasses(index) {
             if (window.innerWidth <= 991) {
                 return "col-100" // Mobile, tutti gli elementi occupano 100%
@@ -148,11 +159,23 @@ export default {
             switch (index) {
                 case 0:
                     return "col-100"
-                case 1:
-                    return "flex-item"
-                case 2:
-                case 3:
-                    return "flex-item"
+                case 4:
+                    return "col-100"
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                    return "col-33"
+                case 9:
+                    return "col-66"
+                case 10:
+                case 12:
+                    return "col-100"
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                    return "col-25"
             }
         },
     },
@@ -161,10 +184,81 @@ export default {
 
 <template>
     <div class="flex-container">
+        <!-- Prima card (index 0) -->
         <ContentBlock
-            v-for="(item, index) in cardsData"
-            :key="index"
-            :class="getGridClasses(index)"
+            v-if="cardsData[0]"
+            :class="getGridClasses(0)"
+            :title="cardsData[0].title"
+            :subtitle="cardsData[0].subtitle"
+            :category="cardsData[0].category"
+            :backgroundImage="cardsData[0].backgroundImage"
+            :backgroundImageDesktopOnly="cardsData[0].backgroundImageDesktopOnly"
+            :image="cardsData[0].image"
+            :video="cardsData[0].video"
+            :author="cardsData[0].author"
+            :authorImage="cardsData[0].authorImage"
+            :date="cardsData[0].date"
+            :audio="cardsData[0].audio"
+            :sponsor="cardsData[0].sponsored" />
+
+        <!-- Riga personalizzata per gli indici 1, 2 e 3 -->
+        <div class="custom-row">
+            <ContentBlock
+                class="col-100 col-lg-66"
+                v-if="cardsData[1]"
+                :title="cardsData[1].title"
+                :subtitle="cardsData[1].subtitle"
+                :category="cardsData[1].category"
+                :backgroundImage="cardsData[1].backgroundImage"
+                :backgroundImageDesktopOnly="cardsData[1].backgroundImageDesktopOnly"
+                :image="cardsData[1].image"
+                :video="cardsData[1].video"
+                :author="cardsData[1].author"
+                :authorImage="cardsData[1].authorImage"
+                :date="cardsData[1].date"
+                :audio="cardsData[1].audio"
+                :sponsor="cardsData[1].sponsored" />
+
+            <div class="col-100 col-lg-33">
+                <ContentBlock
+                    class="col-100"
+                    v-if="cardsData[2]"
+                    :title="cardsData[2].title"
+                    :subtitle="cardsData[2].subtitle"
+                    :category="cardsData[2].category"
+                    :backgroundImage="cardsData[2].backgroundImage"
+                    :backgroundImageDesktopOnly="cardsData[2].backgroundImageDesktopOnly"
+                    :image="cardsData[2].image"
+                    :video="cardsData[2].video"
+                    :author="cardsData[2].author"
+                    :authorImage="cardsData[2].authorImage"
+                    :date="cardsData[2].date"
+                    :audio="cardsData[2].audio"
+                    :sponsor="cardsData[2].sponsored" />
+
+                <ContentBlock
+                    class="col-100"
+                    v-if="cardsData[3]"
+                    :title="cardsData[3].title"
+                    :subtitle="cardsData[3].subtitle"
+                    :category="cardsData[3].category"
+                    :backgroundImage="cardsData[3].backgroundImage"
+                    :backgroundImageDesktopOnly="cardsData[3].backgroundImageDesktopOnly"
+                    :image="cardsData[3].image"
+                    :video="cardsData[3].video"
+                    :author="cardsData[3].author"
+                    :authorImage="cardsData[3].authorImage"
+                    :date="cardsData[3].date"
+                    :audio="cardsData[3].audio"
+                    :sponsor="cardsData[3].sponsored" />
+            </div>
+        </div>
+
+        <!-- Resto delle card (da index 4 in poi) -->
+        <ContentBlock
+            v-for="(item, index) in cardsData.slice(4)"
+            :key="index + 4"
+            :class="getGridClasses(index + 4)"
             :title="item.title"
             :subtitle="item.subtitle"
             :category="item.category"
@@ -177,9 +271,6 @@ export default {
             :date="item.date"
             :audio="item.audio"
             :sponsor="item.sponsored" />
-    </div>
-    <div class="display-mobile">
-        <span class="mountain-icon"><img src="/mountain.png" alt="" /></span>
     </div>
 </template>
 
@@ -204,23 +295,26 @@ export default {
     width: 20px;
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.flex-item {
-    flex: 1 1;
-}
-
 @media (min-width: 991px) {
     .flex-container {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
     }
 
-    .flex-item {
-        flex: 1 1;
+    .custom-row {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .col-lg-33 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-lg-66 {
+        width: calc(100% / 3 * 2);
     }
 }
 </style>

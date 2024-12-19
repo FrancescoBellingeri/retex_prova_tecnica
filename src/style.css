@@ -23,6 +23,10 @@
     width: 75%;
 }
 
+.col-66 {
+    width: calc(100% / 3 * 2);
+}
+
 .col-50 {
     width: 50%;
 }

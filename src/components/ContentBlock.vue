@@ -1,7 +1,7 @@
 <template>
     <!-- <BlogSection v-if="title === 'Il Blog'" /> -->
     <div
-        :class="customClass"
+        :class="customClass ? customClass : ''"
         v-if="title !== 'Il Blog'"
         class="card padding overlay-container"
         :style="{
